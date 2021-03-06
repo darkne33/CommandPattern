@@ -1,2 +1,2 @@
 # CommandPattern
-CommandPatternUnity
+Simple "Command" pattern in Unity with mehanic movement cube.
