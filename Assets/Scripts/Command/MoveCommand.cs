@@ -25,6 +25,6 @@ public class MoveCommand : ICommand
 
     public void CancelMove()
     {
-        _moveReceiver.InverseDirection(_direction);
+        _moveReceiver.MoveOperation(_moveObj, (MoveDirection)_moveReceiver.InverseDirection(_direction), _distance);
     }
 }

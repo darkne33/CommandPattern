@@ -17,6 +17,27 @@ public class InputHandler : MonoBehaviour
     private void Start() => _moveCommandReciever = new MoveCommandReceiver();
 
 
+    public void Undo()
+    {
+        if (_currentCommandNum > 0)
+        {
+            _currentCommandNum--;
+            MoveCommand moveCommand = _commands[_currentCommandNum];
+            moveCommand.CancelMove();
+        }
+    }
+
+
+    public void Redo()
+    {
+        if (_currentCommandNum < _commands.Count)
+        {
+            MoveCommand moveCommand = _commands[_currentCommandNum];
+            _currentCommandNum++;
+            moveCommand.Move();
+        }
+    }
+
 
     private void Move(MoveDirection direction)
     {
@@ -25,7 +46,6 @@ public class InputHandler : MonoBehaviour
         _commands.Add(moveCommand);
         _currentCommandNum++;
     }
-
 
 
     public void MoveUp() { Move(MoveDirection.UP); }

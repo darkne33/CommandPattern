@@ -34,9 +34,8 @@ public class MoveCommandReceiver
                 return MoveDirection.RIGHT;
             case MoveDirection.RIGHT:
                 return MoveDirection.LEFT;
-            default:
-                return null;
         }
+        return direction;
     }
 
 
